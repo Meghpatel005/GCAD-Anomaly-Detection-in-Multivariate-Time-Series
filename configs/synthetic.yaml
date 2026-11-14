@@ -1,0 +1,27 @@
+# Self-contained demo: nonlinear causal system with causal-break anomalies (no downloads needed).
+data:
+  name: synthetic
+  synthetic:
+    n_channels: 10
+    n_roots: 3
+    n_train: 3000
+    n_test: 3000
+    anomaly_ratio: 0.1
+    seed: 0
+model:
+  window: 5
+  hidden_dim: 64
+  n_layers: 2
+train:
+  epochs: 40
+  patience: 5
+causality:
+  normal_sample_p: 0.2
+  max_normal_windows: 500
+scoring:
+  threshold: 0.01
+  beta: 1.0
+  eps: 0.001
+run:
+  seeds: [0, 1, 2]
+  output_dir: runs

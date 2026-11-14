@@ -1,0 +1,19 @@
+# SMD, single machine (38 channels, 28,479 train / 28,479 test as in the paper's Table 1).
+data:
+  name: smd
+  root: data
+  entity: machine-1-1
+model:
+  window: 5
+train:
+  epochs: 50
+causality:
+  normal_sample_p: 0.05
+  max_normal_windows: 2000
+scoring:
+  threshold: 0.01
+  beta: 1.0
+  eps: 0.001
+run:
+  seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  output_dir: runs

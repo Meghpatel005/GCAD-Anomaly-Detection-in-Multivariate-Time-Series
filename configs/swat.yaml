@@ -1,0 +1,25 @@
+# SWaT (51 channels). Place files per docs/DATASETS.md. Hyper-parameters are NOT given in the
+# paper; these are starting values to be tuned (e.g. on the validation split / a held-out slice).
+data:
+  name: swat
+  root: data
+  downsample: 10
+  skip_head: 21600   # 6 h start-up transient; gives the paper's 47,520 training rows (unverified on real file)
+model:
+  window: 5
+  hidden_dim: 64
+  n_layers: 2
+train:
+  epochs: 50
+  patience: 5
+causality:
+  normal_sample_p: 0.05
+  max_normal_windows: 2000
+  batch_size: 64
+scoring:
+  threshold: 0.01
+  beta: 1.0
+  eps: 0.001
+run:
+  seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]   # the paper averages 10 runs
+  output_dir: runs

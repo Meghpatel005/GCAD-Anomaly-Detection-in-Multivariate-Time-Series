@@ -1,0 +1,21 @@
+# MSL (55 channels). The paper's Table 1 sizes (3,682 train / 2,856 test) are far smaller than the
+# whole dataset, so they refer to a single telemetry entity that the paper does not name.
+# Choose it with `entity` (a chan_id from labeled_anomalies.csv); a size warning is logged if it differs.
+data:
+  name: msl
+  root: data
+  entity: M-1
+model:
+  window: 5
+train:
+  epochs: 50
+causality:
+  normal_sample_p: 0.2
+  max_normal_windows: 1000
+scoring:
+  threshold: 0.01
+  beta: 1.0
+  eps: 0.001
+run:
+  seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  output_dir: runs

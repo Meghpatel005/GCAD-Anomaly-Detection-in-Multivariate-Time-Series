@@ -1,0 +1,20 @@
+# SMAP (25 channels). The paper's Table 1 sizes (2,876 train / 8,579 test) refer to a single,
+# unnamed entity; choose it with `entity` (a chan_id from labeled_anomalies.csv).
+data:
+  name: smap
+  root: data
+  entity: P-1
+model:
+  window: 5
+train:
+  epochs: 50
+causality:
+  normal_sample_p: 0.2
+  max_normal_windows: 1000
+scoring:
+  threshold: 0.01
+  beta: 1.0
+  eps: 0.001
+run:
+  seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  output_dir: runs

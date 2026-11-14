@@ -1,0 +1,9 @@
+# Versions the test suite was run against (Python 3.13, Linux). A constraints file, not a full lock: use with `pip install -c constraints-tested.txt -e ".[dev]"`.
+numpy==2.5.3
+pandas==3.0.5
+scikit-learn==1.9.1
+scipy==1.18.1
+torch==2.15.0
+pyyaml==6.0.3
+matplotlib==3.11.2
+pytest==9.1.1
